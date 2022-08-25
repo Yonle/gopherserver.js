@@ -3,7 +3,7 @@ A gopher server written in javascript.
 
 # Install
 ```
-npm install --save gopherserver
+npm install --save gopherserver.js
 ```
 
 # API
@@ -56,7 +56,7 @@ Hello world, This is my gopher server!
 
 index.js:
 ```js
-const gopherserver = require("gopherserver");
+const gopherserver = require("gopherserver.js");
 const fs = require("fs");
 
 let file = fs.readFileSync("gophermap", "utf8");
@@ -70,7 +70,7 @@ gopherserver.render(file);
 # Example
 
 ```js
-const gopherServer = require("./server");
+const gopherServer = require("gopherserver.js");
 const server = gopherServer();
 
 server.on('request', soc => {

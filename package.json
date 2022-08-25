@@ -1,5 +1,5 @@
 {
-  "name": "gopherserver",
+  "name": "gopherserver.js",
   "version": "1.0.0",
   "description": "A gopher server written in javascript.",
   "main": "index.js",
