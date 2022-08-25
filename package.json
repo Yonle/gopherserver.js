@@ -1,0 +1,27 @@
+{
+  "name": "gopherserver",
+  "version": "1.0.0",
+  "description": "A gopher server written in javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.sr.ht/~yonle/gopherserver.js.git"
+  },
+  "keywords": [
+    "gopher",
+    "server",
+    "tcp",
+    "net",
+    "70"
+  ],
+  "author": "Yonle <yonle@proton.me>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://todo.sr.ht/~yonle/gopherserver.js"
+  },
+  "homepage": "https://git.sr.ht/~yonle/gopherserver.js#readme"
+}
