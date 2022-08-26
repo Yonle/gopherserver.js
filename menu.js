@@ -14,17 +14,12 @@
 // PERFORMANCE OF THIS SOFTWARE.
 //
 
-const types = '0123456789+TgI:;dhijprswPX'.split('');
+module.exports = function menu(m, n = -2) {
+  let entry = ["+" + n];
 
-module.exports = function encode(s) {
-  let gen = s.split('\n').map((i, l) => {
-    let type = i.slice(0, 1);
+  Object.keys(m).forEach((k) => {
+    entry.push(`+${k}: ${m[k]}`);
+  });
 
-    if (type === "!") return i = 'i' + i.slice(1) + '\tTITLE\tnull.host\t1';
-    if (type === "%") return i = i.slice(1);
-    if (!types.includes(type)) i = 'i' + i + `\tnull.host\t1`;
-    return i;
-  }).join('\n');
-
-  return gen;
+  return entry.join("\r\n");
 }

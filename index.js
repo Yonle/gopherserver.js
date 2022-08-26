@@ -16,6 +16,7 @@
 
 const net = require('net');
 const render = require('./render.js');
+const menu = require("./menu.js");
 
 module.exports = function gopherServer(cb, opt) {
   if (typeof(opt) === "function") {
@@ -27,14 +28,24 @@ module.exports = function gopherServer(cb, opt) {
   let server = new net.createServer(opt);
 
   server.on('connection', soc => {
-    soc.send = function send(m, t) {
-      soc.write(render(m, t));
-      return soc.end('\n.');
+    soc.send = function send(m) {
+      soc.write(render(m));
+      soc.end('\n.');
+      return soc.destroy();
     };
+
+    soc.menu = function sendMenuEntry(m, n) {
+      soc.write(menu(m, n));
+      return soc.end("\n");
+      //return soc.destroy();
+    }
 
     function readURL(url) {
       if (!soc.url) soc.url = url.toString().replace(RegExp('\r\n', "g"), '');
+      soc.query = soc.url.split("\t").slice(1)[0];
       soc.removeListener('data', readURL);
+
+      if (soc.query) soc.url = soc.url.split("\t")[0];
       if (typeof(cb) === 'function') cb(soc);
       server.emit('request', soc);
     }
@@ -45,3 +56,4 @@ module.exports = function gopherServer(cb, opt) {
 }
 
 module.exports.render = render;
+module.exports.menu = menu;
