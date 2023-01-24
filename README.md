@@ -12,7 +12,6 @@ A gopher server written in javascript.
   - [`gopherserver.render(str)`](#gopherserverrenderstr)
   - [`gopherserver.menu(menu, [n])`](#gopherservermenumenu-n)
 - [Example](#example)
-- [Known Issues](#known-issues)
 
 # Install
 
@@ -124,7 +123,3 @@ server.on('error', console.error);
 
 server.listen(2000);
 ```
-
-# Known issues
-- __**(Help wanted)**__ The rendered string of [`gopherserver.menu(menu, [n])`](#gopherservermenumenu-n) **may** still have some problems at several clients.
-

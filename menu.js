@@ -14,12 +14,14 @@
 // PERFORMANCE OF THIS SOFTWARE.
 //
 
-module.exports = function menu(m, n = -2) {
+module.exports = function menu(m, n = -1) {
   let entry = ["+" + n];
 
   Object.keys(m).forEach((k) => {
     entry.push(`+${k}: ${m[k]}`);
   });
+
+  entry.push(".\r\n");
 
   return entry.join("\r\n");
 }
